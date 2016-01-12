@@ -1,5 +1,7 @@
 <?php
     echo '<div id="messageBox" class="messageRow">Your request has been sent successfully</div>';
+    echo '<div id="messageBoxFailure" class="messageRow rejected">You had sent gift to this user today</div>';
+
     foreach($users as $user) {
 
     echo '<div class="listUsersRow">';

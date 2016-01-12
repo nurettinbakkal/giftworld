@@ -60,9 +60,13 @@ class GiftsController extends Controller
                         $userId,
                         $giftSenderUserId
                     );
-
-                    $giftRequestService->sendGift($giftRequest);
-                    return true;
+                    if ( $giftRequestService->isSentToday($giftRequest) > 0 ) {
+                        $return = 'isSentToday';
+                    } else {
+                        $giftRequestService->sendGift($giftRequest);
+                        $return = 'OK';
+                    }
+                    require_once('../Views/gifts/send.php');
                 } else {
                     return call('pages', 'error');
                 }

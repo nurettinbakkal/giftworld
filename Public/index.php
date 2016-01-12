@@ -6,7 +6,7 @@
  * Time: 10:26
  */
 
-if (isset($_GET['controller']) && isset($_GET['action'])) {
+if ( isset($_GET['controller']) && isset($_GET['action']) ) {
     $controller = strtolower($_GET['controller']);
     $action     = strtolower($_GET['action']);
 } else {
@@ -15,4 +15,9 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 }
 session_start();
 require_once('../Helpers/Session.php');
-require_once('../Views/layout.php');
+
+if ( $controller == 'gifts' && $action == 'send' ) {
+    require_once('../Views/empty_layout.php');
+} else {
+    require_once('../Views/layout.php');
+}

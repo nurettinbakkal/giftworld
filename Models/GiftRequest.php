@@ -122,6 +122,22 @@ class GiftRequest extends Model
     }
 
     /**
+     * @param GiftRequest $giftRequest
+     * @return mixed
+     */
+    public function isSentToday(GiftRequest $giftRequest)
+    {
+        $result = $this->getConnection()->prepare('SELECT count(*) as total FROM gift_requests WHERE user_id = :user_id AND gift_request_type = 1 AND gift_sender_user_id = :gift_sender_user_id AND day(request_time) = day(now())');
+        $result->bindParam(':user_id', $giftRequest->user_id, \PDO::PARAM_INT);
+        $result->bindParam(':gift_sender_user_id', $giftRequest->gift_sender_user_id, \PDO::PARAM_INT);
+        $result->execute();
+        $result->setFetchMode(\PDO::FETCH_ASSOC);
+        $response = $result->fetch();
+
+        return (int) $response['total'];
+    }
+
+    /**
      * @return mixed
      */
     public function getMaxId()

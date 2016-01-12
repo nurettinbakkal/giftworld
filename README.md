@@ -1,5 +1,11 @@
 # giftworld
 
+## Note
+
+You should create database as below and edit Config/DatabaseConfig-dev.php and rename as DatabaseConfig.php
+
+
+
 ```
 CREATE DATABASE `giftworld` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 

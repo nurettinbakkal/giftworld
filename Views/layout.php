@@ -47,13 +47,21 @@
                     data : postData,
                     success:function(data, textStatus, jqXHR)
                     {
-                        console.log(11111);
-                        var tId;
-                        $("#messageBox").hide().slideDown();
-                        clearTimeout(tId);
-                        tId = setTimeout(function () {
-                            $("#messageBox").hide();
-                        }, 3000);
+                        if (data == 'isSentToday') {
+                            var tId;
+                            $("#messageBoxFailure").hide().slideDown();
+                            clearTimeout(tId);
+                            tId = setTimeout(function () {
+                                $("#messageBoxFailure").hide();
+                            }, 3000);
+                        } else {
+                            var tId;
+                            $("#messageBox").hide().slideDown();
+                            clearTimeout(tId);
+                            tId = setTimeout(function () {
+                                $("#messageBox").hide();
+                            }, 3000);
+                        }
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {

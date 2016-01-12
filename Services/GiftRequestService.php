@@ -71,6 +71,15 @@ class GiftRequestService
         return false;
     }
 
+    public function isSentToday(GiftRequest $giftRequest)
+    {
+        $giftRequestModel = new GiftRequest();
+        if ($giftRequestModel->isSentToday($giftRequest)) {
+            return $giftRequestModel->isSentToday($giftRequest);
+        }
+        return false;
+    }
+
     public function getUsersGifts()
     {
         $giftRequestModel = new GiftRequest();
