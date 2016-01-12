@@ -21,6 +21,7 @@ class GiftsController extends Controller
     {
         $giftRequestService = new GiftRequestService();
         $myGifts = $giftRequestService->getMyGifts(Session::getUserId());
+        $myClaims = $giftRequestService->getMyClaims(Session::getUserId());
 
         $sumOfGifts = array();
         foreach($myGifts as $key => $gifts) {

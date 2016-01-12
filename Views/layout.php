@@ -9,6 +9,7 @@
         <script>
             $(function() {
                 $( "#tabs" ).tabs();
+                $( "#claimTabs" ).tabs();
             });
         </script>
     </head>

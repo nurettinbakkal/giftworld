@@ -44,6 +44,32 @@ class GiftRequestService
         return $return;
     }
 
+    /**
+     * @param $userId
+     * @return GiftRequest
+     */
+    public function getMyClaims($userId)
+    {
+        $giftRequest = new GiftRequest();
+        $giftRequests = $giftRequest->findClaimsByUser($userId);
+
+        $return = array();
+        foreach($giftRequests as $gift) {
+            switch($gift['is_accepted']) {
+                case 0:
+                    $return['waiting'][] = $gift;
+                    break;
+                case 1:
+                    $return['accepted'][] = $gift;
+                    break;
+                case 2:
+                    $return['rejected'][] = $gift;
+            }
+        }
+
+        return $return;
+    }
+
     public function sendGift(GiftRequest $giftRequest)
     {
         $giftRequestModel = new GiftRequest();

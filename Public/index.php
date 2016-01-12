@@ -18,7 +18,7 @@ ob_start();
 require_once('../Helpers/Session.php');
 
 if ( $controller == 'gifts' && $action == 'send' ) {
-    require_once('../Views/empty_layout.php');
+    require_once('../Views/emptylayout.php');
 } else {
     require_once('../Views/layout.php');
 }

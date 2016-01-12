@@ -107,6 +107,22 @@ class GiftRequest extends Model
     }
 
     /**
+     * @param $id
+     * @return GiftRequest
+     */
+    public function findClaimsByUser($id)
+    {
+        $id = intval($id);
+        $result = $this->getConnection()->prepare('SELECT gr.id, gr.gift_count, u.first_name, u.last_name, g.gift_name, gr.request_time, gr.is_accepted FROM gift_requests gr LEFT JOIN users u on u.id = gr.user_id LEFT JOIN gifts g on g.id = gr.gift_id WHERE gr.gift_sender_user_id = :gift_sender_user_id AND gr.request_time > DATE_SUB(CURDATE(), INTERVAL +1 WEEK)');
+        $result->bindParam(':gift_sender_user_id', $id, \PDO::PARAM_INT);
+        $result->execute();
+        $result->setFetchMode(\PDO::FETCH_ASSOC);
+        $response = $result->fetchAll();
+
+        return $response;
+    }
+
+    /**
      * @param GiftRequest $giftRequest
      */
     public function createGiftRequest(GiftRequest $giftRequest)
