@@ -13,7 +13,7 @@ Rules Applied
 * Add more than 1 gift support. ( Just add a row to gifts table )
 * Create a user interface.
 * Do not use any framework.
-* Deliver working application online ( http://www.kuzenweb.com/workshop/giftworld)
+* Deliver working application online ( http://www.kuzenweb.com/workshop/giftworld/Public )
 
 
 
