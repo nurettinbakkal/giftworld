@@ -2,7 +2,17 @@
 
 ## Note
 
-You should create database as below and edit Config/DatabaseConfig-dev.php and rename as DatabaseConfig.php
+Create database as below and edit Config/DatabaseConfig-dev.php and rename as DatabaseConfig.php
+
+Rules Applied
+1. Every user in the game is unique.
+2. Users can send 1 gift per day to every other users.
+3. Users can claim unlimited gifts.
+4. Gifts are expired after 1 week.
+5. Add more than 1 gift support. ( Just add a row to gifts table )
+6. Create a user interface.
+7. Do not use any framework.
+8. Deliver working application online.
 
 
 
@@ -17,13 +27,13 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `last_login_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `gifts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `gift_name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `gift_requests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -36,5 +46,5 @@ CREATE TABLE `gift_requests` (
   `request_time` datetime DEFAULT NULL,
   `response_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 ```

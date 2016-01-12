@@ -97,7 +97,7 @@ class GiftRequest extends Model
     public function findByUser($id)
     {
         $id = intval($id);
-        $result = $this->getConnection()->prepare('SELECT gr.id, gr.gift_count, u.first_name, u.last_name, g.gift_name, gr.request_time, gr.is_accepted FROM gift_requests gr LEFT JOIN users u on u.id = gr.gift_sender_user_id LEFT JOIN gifts g on g.id = gr.gift_id WHERE gr.user_id = :user_id');
+        $result = $this->getConnection()->prepare('SELECT gr.id, gr.gift_count, u.first_name, u.last_name, g.gift_name, gr.request_time, gr.is_accepted FROM gift_requests gr LEFT JOIN users u on u.id = gr.gift_sender_user_id LEFT JOIN gifts g on g.id = gr.gift_id WHERE gr.user_id = :user_id AND gr.request_time > DATE_SUB(CURDATE(), INTERVAL +1 WEEK)');
         $result->bindParam(':user_id', $id, \PDO::PARAM_INT);
         $result->execute();
         $result->setFetchMode(\PDO::FETCH_ASSOC);
@@ -155,7 +155,7 @@ class GiftRequest extends Model
      */
     public function getUserGifts()
     {
-        $result = $this->getConnection()->prepare('SELECT gr.user_id, g.gift_name, sum(gr.gift_count) as gift_sum FROM gift_requests gr LEFT JOIN gifts g on g.id = gr.gift_id WHERE gr.is_accepted = 1 GROUP BY gr.user_id, g.gift_name');
+        $result = $this->getConnection()->prepare('SELECT gr.user_id, g.gift_name, sum(gr.gift_count) as gift_sum FROM gift_requests gr LEFT JOIN gifts g on g.id = gr.gift_id WHERE gr.is_accepted = 1 AND gr.request_time > DATE_SUB(CURDATE(), INTERVAL +1 WEEK) GROUP BY gr.user_id, g.gift_name');
         $result->execute();
         $result->setFetchMode(\PDO::FETCH_ASSOC);
         $response = $result->fetchAll();
