@@ -41,7 +41,7 @@ class Gift extends Model
      */
     public function findAll()
     {
-        $gifts = [];
+        $gifts = array();
         $result = $this->getConnection()->prepare('SELECT * FROM gifts');
         $result->execute();
         $result->setFetchMode(\PDO::FETCH_ASSOC);

@@ -71,7 +71,7 @@ class User extends Model
      */
     public function findAll()
     {
-        $users = [];
+        $users = array();
         $result = $this->getConnection()->prepare('SELECT * FROM users');
         $result->execute();
         $result->setFetchMode(\PDO::FETCH_ASSOC);

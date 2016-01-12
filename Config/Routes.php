@@ -35,14 +35,14 @@ function call($controller, $action)
 }
 
 $controllers = array(
-    'pages' => ['home', 'error'],
-    'users' => ['home', 'login', 'logout'],
-    'gifts' => ['home', 'send', 'listusers', 'accept'],
+    'pages' => array('home', 'error'),
+    'users' => array('home', 'login', 'logout'),
+    'gifts' => array('home', 'send', 'listusers', 'accept'),
 );
 
 $allows = array(
-    'pages' => ['home', 'error'],
-    'users' => ['login', 'logout'],
+    'pages' => array('home', 'error'),
+    'users' => array('login', 'logout'),
 );
 
 if (array_key_exists($controller, $controllers)) {
