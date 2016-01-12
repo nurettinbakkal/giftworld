@@ -43,6 +43,7 @@ $controllers = array(
 $allows = array(
     'pages' => array('home', 'error'),
     'users' => array('login', 'logout'),
+    'gifts' => array(),
 );
 
 if (array_key_exists($controller, $controllers)) {

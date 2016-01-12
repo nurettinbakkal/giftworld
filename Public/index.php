@@ -14,6 +14,7 @@ if ( isset($_GET['controller']) && isset($_GET['action']) ) {
     $action     = 'home';
 }
 session_start();
+ob_start();
 require_once('../Helpers/Session.php');
 
 if ( $controller == 'gifts' && $action == 'send' ) {
