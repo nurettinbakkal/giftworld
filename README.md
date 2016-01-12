@@ -5,14 +5,15 @@
 Create database as below and edit Config/DatabaseConfig-dev.php and rename as DatabaseConfig.php
 
 Rules Applied
-1. Every user in the game is unique.
-2. Users can send 1 gift per day to every other users.
-3. Users can claim unlimited gifts.
-4. Gifts are expired after 1 week.
-5. Add more than 1 gift support. ( Just add a row to gifts table )
-6. Create a user interface.
-7. Do not use any framework.
-8. Deliver working application online.
+
+* Every user in the game is unique.
+* Users can send 1 gift per day to every other users.
+* Users can claim unlimited gifts.
+* Gifts are expired after 1 week.
+* Add more than 1 gift support. ( Just add a row to gifts table )
+* Create a user interface.
+* Do not use any framework.
+* Deliver working application online ( http://www.kuzenweb.com/workshop/giftworld)
 
 
 
