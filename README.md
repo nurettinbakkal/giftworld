@@ -4,6 +4,7 @@
 
 Create database as below and edit Config/DatabaseConfig-dev.php and rename as DatabaseConfig.php
 
+
 Rules Applied
 
 * Every user in the game is unique.
